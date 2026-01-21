@@ -1,0 +1,387 @@
+/* ------------------------------------------------------------------- */
+/* --- BASE STYLING (Vibrant Cyberpunk) --- */
+/* ------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Electrolize&display=swap');
+
+/* Dark Purple/Black Background */
+body {
+    background-color: #1c0d37; 
+    color: #f0f0f0; /* Light text color */
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    /* Subtle background texture/glow */
+    background: linear-gradient(145deg, #1c0d37 0%, #100620 100%);
+}
+
+.logo-text {
+    font-family: 'Electrolize', sans-serif; /* Techy font for logo */
+    font-size: 1.8em;
+    color: #FF00FF; /* Electric Pink/Magenta */
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.7);
+    margin: 0;
+}
+
+/* ------------------------------------------------------------------- */
+/* --- AUTH PAGE STYLING (Instructions 1 & 4) --- */
+/* ------------------------------------------------------------------- */
+
+.App-header-unauth {
+    width: 90%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 0;
+    margin-bottom: 20px;
+}
+
+.unauth-quote-line {
+    font-style: italic;
+    color: #00FFFF; /* Cyan */
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+}
+
+.unauth-tagline {
+    font-size: 0.9em;
+    color: #f0f0f0;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.auth-page-container {
+    display: flex;
+    flex-direction: column; /* Stacking Bot and Form vertically */
+    width: 90%;
+    max-width: 450px;
+    gap: 30px;
+    margin-top: 50px;
+    align-items: center;
+}
+
+.welcome-bot-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.bot-icon {
+    font-size: 80px;
+    margin-bottom: 15px;
+    color: #00FFFF;
+    animation: neon-pulse 1.5s infinite alternate;
+}
+
+@keyframes neon-pulse {
+    from {
+        text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    }
+    to {
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.4);
+    }
+}
+
+.welcome-text h2 {
+    color: #FF00FF;
+    margin: 0;
+    font-size: 2.2em;
+}
+
+.welcome-text .tagline, .status-message {
+    color: #9370DB; /* Soft Violet */
+    margin-top: 5px;
+}
+
+.auth-form-block {
+    width: 100%;
+}
+
+.auth-container {
+    background-color: #2a184a; /* Darker purple base */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.4); /* Pink glow */
+    border: 2px solid #FF00FF;
+    text-align: center;
+}
+
+.auth-container h2 {
+    color: #00FFFF;
+    margin-bottom: 20px;
+}
+
+/* Instruction 3: Vertical Stacking */
+.auth-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background-color: #100620;
+    border: 1px solid #9370DB;
+    color: #f0f0f0;
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.auth-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #00FF7F; /* Electric Green */
+    color: black;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.auth-button:hover {
+    background-color: #39ffb3;
+    box-shadow: 0 0 10px rgba(0, 255, 127, 0.8);
+}
+
+.toggle-link {
+    color: #FF00FF;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* ------------------------------------------------------------------- */
+/* --- LOGGED-IN LAYOUT STYLING (Instructions 2, 3, 4) --- */
+/* ------------------------------------------------------------------- */
+
+.App-header {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #3a1c6a;
+}
+
+/* Top Right Control Panel (Instruction 2) */
+.user-control-panel {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-email {
+    font-size: 0.9em;
+    color: #9370DB;
+}
+
+.signout-button, .history-toggle-button {
+    background-color: #3a1c6a;
+    color: #FF00FF;
+    padding: 8px 15px;
+    border: 1px solid #FF00FF;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    font-weight: 600;
+}
+
+.signout-button:hover, .history-toggle-button:hover {
+    background-color: #4a2c7a;
+    box-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+}
+
+/* Collapsible History Bar (Instruction 3) */
+.history-bar-container {
+    width: 90%;
+    max-width: 1200px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+    background-color: #2a184a;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    margin-bottom: 15px;
+}
+
+.history-bar-container.visible {
+    max-height: 250px;
+    padding: 15px;
+    border-color: #FF00FF;
+}
+
+.history-list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    gap: 15px;
+}
+
+.history-item {
+    min-width: 250px;
+    flex-shrink: 0;
+    padding: 10px 15px;
+    background-color: #3a1c6a;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    border-left: 3px solid #00FFFF;
+}
+
+.history-item:hover {
+    background-color: #4a2c7a;
+    transform: translateY(-2px);
+}
+
+.history-title {
+    color: #00FFFF;
+    font-weight: 700;
+}
+
+.history-meta {
+    color: #a0a0a0;
+}
+
+/* Main Layout: Editor (Left) & Buttons (Right) - Instruction 4 */
+.main-compiler-area {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    gap: 20px;
+    flex-grow: 1; /* Allows the area to take up available height */
+}
+
+.editor-area {
+    flex: 3; /* Editor takes up much more space */
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid #FF00FF;
+}
+
+.button-side-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    background-color: #2a184a;
+    border-radius: 8px;
+    border: 1px solid #00FFFF;
+    max-height: 450px; /* Constrain button panel height */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+.action-button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+    font-size: 1em;
+    color: white;
+    background-color: #3a1c6a;
+    border: 1px solid #6a40a0;
+}
+
+.action-button:hover {
+    background-color: #4a2c7a;
+    transform: translateY(-1px);
+    box-shadow: 0 0 8px rgba(255, 0, 255, 0.5);
+}
+
+.primary-action {
+    background-color: #00FF7F; /* Electric Green */
+    color: black;
+    border-color: #00FFFF;
+}
+
+.primary-action:hover {
+    background-color: #39ffb3;
+    box-shadow: 0 0 10px rgba(0, 255, 127, 0.8);
+}
+
+.ai-action {
+    background-color: #8A2BE2; /* Violet for AI */
+    border-color: #FF00FF;
+}
+.ai-action:hover {
+    background-color: #9370DB;
+}
+
+/* Output Panel (Full Width Bottom) */
+.output-panel-full {
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 20px;
+    background-color: #100620;
+    padding: 15px;
+    border: 2px solid #00FFFF; /* Neon Cyan Border */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+.output-panel-full h2 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #FF00FF;
+    border-bottom: 1px solid #3a1c6a;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.output-panel-full pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: monospace;
+    font-size: 1em;
+    color: #f0f0f0;
+    margin: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+/* ------------------------------------------------------------------- */
+/* --- RESPONSIVENESS (Mobile/Tablet) --- */
+/* ------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+    .main-compiler-area {
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+    }
+
+    .editor-area {
+        height: 50vh;
+    }
+
+    .button-side-panel {
+        max-height: none;
+        flex-direction: row; 
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .action-button {
+        flex-grow: 1;
+        min-width: 45%;
+        max-width: 48%;
+    }
+
+    .output-panel-full {
+        min-height: 20vh;
+    }
+}
